@@ -49,6 +49,10 @@ ol {
   list-style-type: none;
 }
 
+.screenreader {
+  @include screenreader-only;
+}
+
 //
 .bg-pattern-component {
   background-color: var(--very-pale-cyan);
@@ -344,6 +348,9 @@ ol {
 }
 
 .call-to-action-section {
+  position: relative;
+  z-index: 1;
+  background-color: var(--white);
   margin: 120px auto 0;
   width: min(93.8666667%, 860px);
   box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.0710768);
@@ -389,7 +396,7 @@ ol {
       font-size: rem(14);
     }
 
-    @include media(laptop){
+    @include media(laptop) {
       font-size: rem(20);
       padding: 25px 100px;
     }
@@ -398,5 +405,187 @@ ol {
       background-color: var(--pink-hover);
     }
   }
+}
 
+
+// **** FOOTER **** //
+.footer-section {
+  margin-top: -67px;
+  padding: 140px 4.2666667% 46px;
+  background-color: var(--very-dark-cyan);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  @include media(laptop) {
+    margin-top: -96px;
+    gap: 32px;
+    padding: 144px 5.4166667% 64px 8.3333333%;
+  }
+
+  .logo-link {
+    display: block;
+    width: 170px;
+    height: 28px;
+    background-color: var(--white);
+    -webkit-mask-image: url(/images/logo.svg);
+    mask-image: url(/images/logo.svg);
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    @include media(laptop) {
+      width: 152px;
+      height: 24px;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    @include media(laptop) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .address {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include media(laptop) {
+      max-width: 379px;
+      gap: 16px;
+    }
+
+    &__location,
+    &__phone,
+    &__email {
+      font-family: var(--open-sans);
+      font-weight: 400;
+      font-size: rem(14);
+      line-height: 171%;
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 16px;
+
+      &::before {
+        display: block;
+        width: 24px;
+        height: 24px;
+        content: '';
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+
+    &__location::before {
+      background-image: url(/images/icon-location.svg);
+    }
+
+    &__phone::before {
+      background-image: url(/images/icon-phone.svg);
+    }
+
+    &__email::before {
+      background-image: url(/images/icon-email.svg);
+    }
+  }
+
+  .navlink-container {
+    &.first {
+      margin-top: 41px;
+
+      @include media(laptop) {
+        margin-top: 0;
+      }
+    }
+
+    &.second {
+      margin-top: 16px;
+
+      @include media(laptop) {
+        margin-top: 0;
+      }
+    }
+
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .navlink {
+    font-family: var(--open-sans);
+    font-weight: 400;
+    font-size: rem(14);
+    line-height: 193%;
+    color: var(--white);
+  }
+
+  .socials-links-and-copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+
+    @include media(laptop){
+      margin-top: 0;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  .social-links-container {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+  }
+
+  .social-link {
+    width: 32px;
+    height: 32px;
+    background-color: var(--white);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+
+    &:hover {
+      background-color: var(--pink);
+    }
+
+    &[aria-label='facebook'] {
+      mask-image: url(/images/facebook-icon.svg);
+      -webkit-mask-image: url(/images/facebook-icon.svg);
+    }
+
+    &[aria-label='twitter'] {
+      mask-image: url(/images/twitter-icon.svg);
+      -webkit-mask-image: url(/images/twitter-icon.svg);
+    }
+
+    &[aria-label='instagram'] {
+      mask-image: url(/images/instagram-icon.svg);
+      -webkit-mask-image: url(/images/instagram-icon.svg);
+    }
+  }
+
+  .copyright {
+    margin-top: 24px;
+    font-family: var(--open-sans);
+    font-weight: 400;
+    font-size: rem(11);
+    line-height: 154.5454545%;
+    color: var(--white);
+  }
 }
