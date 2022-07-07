@@ -157,6 +157,7 @@ ol {
     margin: 71px 10px 0 0;
     padding-inline: max(5.5555556%, 50vw - 640px);
     align-items: center;
+    padding-bottom: 72px;
   }
 
   .headline {
@@ -223,5 +224,120 @@ ol {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+
+    @include media(laptop) {
+      padding-bottom: 70.8823529%;
+    }
   }
 }
+
+.details-section {
+  margin-top: 59px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  @include media(laptop) {
+    margin-top: 160px;
+  }
+}
+
+.details-card {
+  width: min(89.3333333%, 560px);
+  margin-inline: auto;
+  padding: 24px 40px 33px;
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include media(tablet) {
+    padding: 40px;
+  }
+
+  @include media(laptop) {
+    padding: 0;
+    width: min(85.5555556%, 1232px);
+    align-items: center;
+
+    &.grow-together {
+      padding-inline: 120px 16px;
+      grid-template-columns: 488fr 440fr;
+      gap: 168px;
+
+      .header {
+        grid-area: 1 / 1 / auto / auto;
+      }
+    }
+
+    &.flowing-conversations {
+      padding-inline: 109px 29px;
+      grid-template-columns: 440fr 499fr;
+      gap: 155px;
+    }
+
+    &.your-users {
+      padding-inline: 120px 16px;
+      grid-template-columns: 477fr 440fr;
+      gap: 179px;
+
+      .header {
+        grid-area: 1 / 1 / auto / auto;
+      }
+    }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &.grow-together::before {
+    background-image: url(/images/illustration-grow-together.svg);
+  }
+
+  &.flowing-conversations::before {
+    background-image: url(/images/illustration-flowing-conversation.svg);
+  }
+
+  &.your-users::before {
+    background-image: url(/images/illustration-your-users.svg);
+  }
+
+  .title {
+    font-family: var(--poppins);
+    font-weight: 600;
+    font-size: rem(20);
+    line-height: 150%;
+    text-align: center;
+    color: var(--very-dark-cyan);
+
+    @include media(laptop) {
+      font-size: rem(28);
+      text-align: left;
+    }
+  }
+
+  .text {
+    margin-top: 16px;
+    font-family: var(--open-sans);
+    font-weight: 400;
+    font-size: rem(14);
+    line-height: 150%;
+    text-align: center;
+    color: var(--grayish-blue);
+
+    @include media(laptop) {
+      font-size: rem(18);
+      text-align: left;
+    }
+  }
+}
+
