@@ -3,6 +3,7 @@
   --open-sans: "Open Sans", sans-serif;
   --poppins: "Poppins", sans-serif;
   --pink: hsl(322, 100%, 66%);
+  --pink-hover: #FF9ADB;
   --very-pale-cyan: hsl(193, 100%, 96%);
   --very-dark-cyan: hsl(192, 100%, 9%);
   --grayish-blue: hsl(208, 11%, 55%);
@@ -130,6 +131,91 @@ ol {
 }
 .navbar-component .call-to-action:hover {
   color: var(--grayish-blue);
+}
+
+.hero-section {
+  position: relative;
+  z-index: 1;
+  margin: 80px auto 0;
+  padding-bottom: 37px;
+  width: min(81.0666667%, 536px);
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 56px;
+}
+@media screen and (min-width: 1200px) {
+  .hero-section {
+    grid-template-columns: 536px 1fr;
+    column-gap: 54px;
+    width: calc(100% - 10px);
+    margin: 71px 10px 0 0;
+    padding-inline: max(5.5555556%, 50vw - 640px);
+    align-items: center;
+  }
+}
+.hero-section .headline {
+  font-family: var(--poppins);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 150%;
+  text-align: center;
+  color: var(--very-dark-cyan);
+}
+@media screen and (min-width: 1200px) {
+  .hero-section .headline {
+    font-size: 2.5rem;
+    text-align: left;
+  }
+}
+.hero-section .subheadline {
+  margin-top: 24px;
+  font-family: var(--open-sans);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  text-align: center;
+  color: var(--very-dark-cyan);
+}
+@media screen and (min-width: 1200px) {
+  .hero-section .subheadline {
+    margin-top: 32px;
+    font-size: 1.125rem;
+    text-align: left;
+  }
+}
+.hero-section .call-to-action {
+  margin-top: 32px;
+  display: block;
+  width: max-content;
+  margin-inline: auto;
+  font-family: var(--open-sans);
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 133.33333%;
+  color: var(--white);
+  padding: 12px 60px;
+  border-radius: 999px;
+  background-color: var(--pink);
+  box-shadow: 2px 3px 6px 1px rgba(255, 82, 193, 0.166185);
+}
+@media screen and (min-width: 1200px) {
+  .hero-section .call-to-action {
+    font-size: 0.875rem;
+    line-height: 135.7142857%;
+    padding: 18.5px 70px;
+    margin: 49px 0 0;
+  }
+}
+.hero-section .call-to-action:hover {
+  background-color: var(--pink-hover);
+}
+.hero-section .bg-illustration {
+  width: 100%;
+  padding-bottom: 70.6081081%;
+  background-image: url(/images/illustration-mockups.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 /*# sourceMappingURL=index.css.map */
