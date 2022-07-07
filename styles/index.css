@@ -6,6 +6,7 @@
   --very-pale-cyan: hsl(193, 100%, 96%);
   --very-dark-cyan: hsl(192, 100%, 9%);
   --grayish-blue: hsl(208, 11%, 55%);
+  --white: #FFF;
 }
 
 *,
@@ -40,6 +41,95 @@ address {
 ul,
 ol {
   list-style-type: none;
+}
+
+.bg-pattern-component {
+  background-color: var(--very-pale-cyan);
+}
+.bg-pattern-component::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 657px;
+  background-image: url(/images/bg-hero-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@media screen and (min-width: 1200px) {
+  .bg-pattern-component::before {
+    background-image: url(/images/bg-hero-desktop.svg);
+  }
+}
+
+.navbar-component {
+  padding: 27px 4.2666667% 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+@media screen and (min-width: 720px) {
+  .navbar-component {
+    padding-top: 48px;
+    padding-inline: max(5.5555556%, 50vw - 640px);
+  }
+}
+.navbar-component .logo-wrapper-outer {
+  width: 104px;
+}
+@media screen and (min-width: 720px) {
+  .navbar-component .logo-wrapper-outer {
+    width: 140px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .navbar-component .logo-wrapper-outer {
+    width: 200px;
+  }
+}
+.navbar-component .logo-wrapper-inner {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 15.3846154%;
+}
+.navbar-component .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.navbar-component .call-to-action {
+  padding: 5px 22.5px;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.625rem;
+  line-height: 140%;
+  color: var(--very-dark-cyan);
+  background-color: var(--white);
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.0954201);
+  border-radius: 999px;
+}
+@media screen and (min-width: 720px) {
+  .navbar-component .call-to-action {
+    font-size: 0.875rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .navbar-component .call-to-action {
+    padding: 14.5px 64px;
+  }
+}
+.navbar-component .call-to-action:hover {
+  color: var(--grayish-blue);
 }
 
 /*# sourceMappingURL=index.css.map */
